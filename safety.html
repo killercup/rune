@@ -193,7 +193,7 @@ where
 </span></code></pre></pre>
 <p>We could use <code>TypeId</code> directly here, but <code>TypeId</code>'s cannot be constructed for
 types unknown to Rust, which prevent it from being used through a C ffi. A raw
-<a href="https://github.com/rune-rs/rune/blob/e910fb9/crates/runestick/src/any.rs#L171"><code>AnyVtable</code></a> has to be usable outside of Rust.</p>
+<a href="https://github.com/rune-rs/rune/blob/e910fb9/crates/runestick/src/any.rs#L171"><code>AnyObjVtable</code></a> has to be usable outside of Rust.</p>
 <blockquote>
 <p>An interesting detail is that this is actually <a href="https://github.com/rust-lang/rust/issues/10389">a soundness hole in Rust</a>
 right now.</p>
@@ -211,7 +211,7 @@ use such a table at the time we install modules into the <a href="https://docs.r
 <p>Rune uses an <a href="https://docs.rs/runestick/0/runestick/struct.Any.html">internal <code>Any</code> type</a>.</p>
 <p>Apart from the <a href="#conflicts-in-type-hashes">hash conflict</a> documented above, the
 implementation should be sound. We have an internal <code>Any</code> type instead of
-relying on <code>Box&lt;dyn Any&gt;</code> to allow <a href="https://github.com/rune-rs/rune/blob/e910fb9/crates/runestick/src/any.rs#L171"><code>AnyVtable</code></a> to be implementable by external
+relying on <code>Box&lt;dyn Any&gt;</code> to allow <a href="https://github.com/rune-rs/rune/blob/e910fb9/crates/runestick/src/any.rs#L171"><code>AnyObjVtable</code></a> to be implementable by external
 types to support external types through a C ffi.</p>
 <h2><a class="header" href="#sharedt-and-unsafefromvalue" id="sharedt-and-unsafefromvalue"><code>Shared&lt;T&gt;</code> and <code>UnsafeFromValue</code></a></h2>
 <p>A large chunk of the <code>Shared&lt;T&gt;</code> container is <code>unsafe</code>. This is a container

@@ -244,7 +244,7 @@ async fn main() -&gt; runestick::Result&lt;()&gt; {
     let unit = rune::load_sources(&amp;context, &amp;options, &amp;mut sources, &amp;mut warnings)?;
 
     let vm = Vm::new(Arc::new(context), Arc::new(unit));
-    let output = vm.call(&amp;[&quot;main&quot;], (33i64,))?.complete()?;
+    let output = vm.execute(&amp;[&quot;main&quot;], (33i64,))?.complete()?;
     let output = i64::from_value(output)?;
 
     println!(&quot;output: {}&quot;, output);
