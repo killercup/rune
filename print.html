@@ -2204,7 +2204,7 @@ types to support external types through a C ffi.</p>
 <p>A large chunk of the <code>Shared&lt;T&gt;</code> container is <code>unsafe</code>. This is a container
 which is behaviorally equivalent to <code>Rc&lt;RefCell&lt;T&gt;&gt;</code>.</p>
 <p>We have this because it merges <code>Rc</code> and <code>RefCell</code> and provides the ability to
-have <a href="https://docs.rs/runestick/0/runestick/struct.Shared.html#method.owned_ref">&quot;owned borrows&quot;</a> and the ability to unsafely decompose these into a raw
+have <a href="https://docs.rs/runestick/0/runestick/struct.Shared.html#method.into_ref">&quot;owned borrows&quot;</a> and the ability to unsafely decompose these into a raw
 pointer and a raw guard, which is used in many implementations of
 <a href="https://docs.rs/runestick/0/runestick/trait.UnsafeFromValue.html"><code>UnsafeFromValue</code></a>.</p>
 <p><a href="https://docs.rs/runestick/0/runestick/trait.UnsafeFromValue.html"><code>UnsafeFromValue</code></a> is a conversion trait which is strictly used internally to
