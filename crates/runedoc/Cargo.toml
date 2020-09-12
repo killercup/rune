@@ -1,0 +1,12 @@
+[package]
+name = "runedoc"
+version = "0.1.0"
+authors = ["Pascal Hertleif <killercup@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0.32"
+
+rune = {version = "0.6.16", path = "../rune", features = ["modules"]}
+rune-macros = {version = "0.6.16", path = "../rune-macros"}
+runestick = {version = "0.6.16", path = "../runestick"}

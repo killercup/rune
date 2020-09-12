@@ -146,6 +146,35 @@ pub enum ContextSignature {
     },
 }
 
+impl ContextSignature {
+    pub fn path(&self) -> &Item {
+        match self {
+            ContextSignature::Function { path, .. } | ContextSignature::Instance { path, .. } => {
+                path
+            }
+        }
+    }
+
+    pub fn args(&self) -> Option<usize> {
+        match self {
+            ContextSignature::Function { args, .. } | ContextSignature::Instance { args, .. } => {
+                *args
+            }
+        }
+    }
+
+    pub fn instance(&self) -> Option<(&String, &TypeInfo)> {
+        match self {
+            ContextSignature::Function { .. } => None,
+            ContextSignature::Instance {
+                name,
+                self_type_info,
+                ..
+            } => Some((name, self_type_info)),
+        }
+    }
+}
+
 impl fmt::Display for ContextSignature {
     fn fmt(&self, fmt: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {

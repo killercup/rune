@@ -59,6 +59,7 @@ impl Context {
         let output = FieldAttrs::default();
 
         for attr in attrs {
+            #[allow(clippy::never_loop)]
             for meta in self.get_rune_meta_items(attr)? {
                 match meta {
                     meta => {

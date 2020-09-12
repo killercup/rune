@@ -8,6 +8,7 @@ members = [
     "crates/rune-testing",
     "crates/rune",
     "crates/rune-cli",
+    "crates/runedoc",
 ]
 
 default-members = [
@@ -18,4 +19,5 @@ default-members = [
     "crates/rune-testing",
     "crates/rune",
     "crates/rune-cli",
+    "crates/runedoc",
 ]
